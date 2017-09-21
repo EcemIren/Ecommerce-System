@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@section head
+{
+    <script type="text/javascript">
+         <!--
+            // Form validation code will come here.
+    //-->
+    function validate() {
+        if (document.myForm.Adi.value == "") {
+            alert("Lütfen kategori adı giriniz!");
+            document.myForm.Adi.focus();
+            return false;
+        }
+
+        if(document.myForm.Aciklama.value == "")
+        {
+            alert("Lütfen kategori açıklaması giriniz!");
+            document.myForm.Aciklama.focus();
+            return false;
+        }
+    }
+    </script>
+}
+
+<br /><br /><br />
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Kategori Ekle
+            </header>
+            <div class="panel-body">
+                <form action="/Admin/KategoriEkle" class="form-horizontal tasi-form" method="post" name="myForm" onsubmit="return(validate());">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Kategori Adı</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Adi" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Açıklama</label>
+                        <div class="col-sm-10">
+                            <input name="Aciklama" type="text" class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
