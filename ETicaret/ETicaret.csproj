@@ -1940,7 +1940,9 @@
     <Content Include="obj\Debug\ETicaret.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ETicaret.dll" />
     <Content Include="obj\Debug\ETicaret.pdb" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Classes\Contex.cs" />
@@ -1949,6 +1951,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2025,7 +2028,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2274,6 +2279,8 @@
     <Content Include="Views\Admin\SliderResimleri.cshtml" />
     <Content Include="Views\Home\MiniSepetWidget.cshtml" />
     <Content Include="Views\Home\UrunDetay.cshtml" />
+    <Content Include="Views\Admin\GetAllUsers.cshtml" />
+    <Content Include="Views\Admin\AddUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

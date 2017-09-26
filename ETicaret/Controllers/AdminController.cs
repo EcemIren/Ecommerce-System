@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Configuration;
 using System.IO;
 using System.Text;
+using System.Web.Security;
 
 namespace ETicaret.Controllers
 {
@@ -36,9 +37,20 @@ namespace ETicaret.Controllers
         [HttpPost]
         public ActionResult UrunEkle(Urun urn)
         {
-            Contex.Baglanti.Uruns.Add(urn);
-            Contex.Baglanti.SaveChanges();
-            return RedirectToAction("Urunler");
+            if (ModelState.IsValid)
+            {
+                Contex.Baglanti.Uruns.Add(urn);
+                Contex.Baglanti.SaveChanges();
+                return RedirectToAction("Urunler");
+            }
+
+            else
+            {
+
+                ViewBag.Kategoriler = Contex.Baglanti.Kategoris.ToList();
+                ViewBag.Markalar = Contex.Baglanti.Markas.ToList();
+                return View(urn);
+            }
         }
 
         public ActionResult UrunSil(int urunId)
@@ -308,6 +320,20 @@ namespace ETicaret.Controllers
 
             return RedirectToAction("SliderResimleri");
         }
+
+        public ActionResult GetAllUsers()
+        {
+            MembershipUserCollection users = Membership.GetAllUsers();
+            return View(users);
+        }
+
+        [HttpPost]
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+
 
 
     }
